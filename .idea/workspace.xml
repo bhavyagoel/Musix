@@ -14,6 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/Activate.ps1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/activate" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/activate.csh" beforeDir="false" />
@@ -1030,7 +1031,7 @@
       <workItem from="1603801511059" duration="517000" />
       <workItem from="1603819997653" duration="8224000" />
       <workItem from="1603879795429" duration="13096000" />
-      <workItem from="1603908074700" duration="13863000" />
+      <workItem from="1603908074700" duration="13974000" />
     </task>
     <servers />
   </component>
