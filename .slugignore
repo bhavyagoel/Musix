@@ -1,0 +1,8 @@
+/node_modules
+/.idea
+ok.py
+table.sql
+README.md
+templates/temp/song/*.mp3
+templates/temp/image/*.jpeg
+/venv

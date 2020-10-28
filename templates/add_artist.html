@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <style>
+        body {
+            margin: 0;
+            background-size: auto;
+            background-image: url(static/images/index.jpg);
+        }
+    </style>
+    <div class="jumbotron text-center">
+        <h1>Add Artist</h1>
+        {% from "includes/_formhelpers.html" import render_field %}
+    </div>
+    <div class="jumbotron">
+        <form method="POST" action="">
+            <div class="form-group">
+                {{ render_field(form.Name,class_="form-control") }}
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.Artist_ID,class_="form-control") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.DOB,class_="form-control") }}
+                </div>
+            </div>
+            <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+        </form>
+    </div>
+
+{% endblock %}

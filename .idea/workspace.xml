@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Playdate - Why Don't We Talk About It.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spendtime Palace - Aguas Calientes.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Ryan’s Mystery Playdate Theme Song - Who Will It Be?.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Why Don't We Talk About It.jpeg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="0002a476-c50a-4a1a-801e-c9f955358d2b" />
+  <component name="ProjectId" id="1iUUB4JDLk7PC9Rh5FBmLwJY2q3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="" />
+      <created>1601961527035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601961527035</updated>
+      <workItem from="1601961532075" duration="5231000" />
+      <workItem from="1602001945544" duration="34346000" />
+      <workItem from="1602124282995" duration="39706000" />
+      <workItem from="1602388609003" duration="82000" />
+      <workItem from="1602392358625" duration="171000" />
+      <workItem from="1602475908921" duration="162000" />
+      <workItem from="1602476093250" duration="372000" />
+      <workItem from="1602476743594" duration="1280000" />
+      <workItem from="1602496644651" duration="1620000" />
+      <workItem from="1602498590793" duration="20000" />
+      <workItem from="1602545875523" duration="172000" />
+      <workItem from="1602752346005" duration="701000" />
+      <workItem from="1602795072500" duration="21735000" />
+      <workItem from="1602861600203" duration="32579000" />
+      <workItem from="1603000959127" duration="579000" />
+      <workItem from="1603004001903" duration="704000" />
+      <workItem from="1603043867524" duration="3000" />
+      <workItem from="1603080806135" duration="3848000" />
+      <workItem from="1603190325812" duration="2814000" />
+      <workItem from="1603265066695" duration="13000" />
+      <workItem from="1603781340607" duration="1274000" />
+      <workItem from="1603787660367" duration="675000" />
+      <workItem from="1603801511059" duration="517000" />
+      <workItem from="1603819997653" duration="8224000" />
+      <workItem from="1603879795429" duration="13096000" />
+      <workItem from="1603908074700" duration="13531000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects" timestamp="1602084105979">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects/72.27.1848.1053@72.27.1848.1053" timestamp="1602084105979" />
+    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages" timestamp="1602130789383">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages/72.27.1848.1053@72.27.1848.1053" timestamp="1602130789383" />
+    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602003119137">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1602003119137" />
+    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603888114978">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1603888114978" />
+    <state x="679" y="290" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602478221556">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="679" y="290" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1602478221556" />
+    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1603888150556">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY/72.27.1848.1053@72.27.1848.1053" timestamp="1603888150556" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603888136886">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1603888136886" />
+    <state x="857" y="453" width="277" height="207" key="Github.ShareDialog" timestamp="1601962778532">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="857" y="453" width="277" height="207" key="Github.ShareDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601962778532" />
+    <state width="716" height="324" key="GridCell.Tab.0.bottom" timestamp="1602901365056">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="716" height="324" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
+    <state width="716" height="324" key="GridCell.Tab.0.center" timestamp="1602901365056">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="716" height="324" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
+    <state width="716" height="324" key="GridCell.Tab.0.left" timestamp="1602901365055">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="716" height="324" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365055" />
+    <state width="716" height="324" key="GridCell.Tab.0.right" timestamp="1602901365056">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="716" height="324" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
+    <state x="498" y="111" width="1024" height="852" key="SettingsEditor" timestamp="1603910332676">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="498" y="111" width="1024" height="852" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1603910332676" />
+    <state x="869" y="254" width="367" height="613" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602901256160">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="869" y="254" width="367" height="613" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/72.27.1848.1053@72.27.1848.1053" timestamp="1602901256160" />
+    <state x="395" y="244" width="878" height="743" key="dock-window-1" timestamp="1603001257974">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="395" y="244" width="878" height="743" key="dock-window-1/72.27.1848.1053@72.27.1848.1053" timestamp="1603001257974" />
+    <state x="590" y="155" width="802" height="803" key="new project wizard" timestamp="1603124656038">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="590" y="155" width="802" height="803" key="new project wizard/72.27.1848.1053@72.27.1848.1053" timestamp="1603124656038" />
+    <state x="228" y="252" key="run.anything.popup" timestamp="1602188758952">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="228" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1602188758952" />
+    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1603916612550">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1603916612550" />
+  </component>
+</project>

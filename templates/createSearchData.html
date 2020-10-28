@@ -1,0 +1,399 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .owl-nav button {
+            position: absolute;
+            top: 50%;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .owl-nav button.owl-prev {
+            left: 0;
+        }
+
+        .owl-nav button.owl-next {
+            right: 0;
+        }
+
+        .owl-dots {
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .owl-dots button.owl-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #ccc;
+            margin: 0 3px;
+        }
+
+        .owl-dots button.owl-dot.active {
+            background-color: #000;
+        }
+
+        .owl-dots button.owl-dot:focus {
+            outline: none;
+        }
+
+        .owl-nav button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.38) !important;
+        }
+
+        .owl-nav button:focus {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            background-size: auto;
+            background-image: url(static/images/index.jpg);
+        }
+
+        .music-container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+            display: flex;
+            padding: 20px 30px;
+            position: relative;
+            margin: 100px 0;
+            z-index: 10;
+        }
+
+        .img-container {
+            position: relative;
+            width: 110px;
+        }
+
+        .img-container::after {
+            content: '';
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%, 50%);
+        }
+
+        .img-container img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 110px;
+            width: inherit;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: rotate 3s linear infinite;
+
+            animation-play-state: paused;
+        }
+
+        .music-container.play .img-container img {
+            animation-play-state: running;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .action-btn {
+            background-color: #fff;
+            border: 0;
+            color: #dfdbdf;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 20px;
+        }
+
+        .action-btn.action-btn-big {
+            color: #cdc2d0;
+            font-size: 30px;
+        }
+
+        .action-btn:focus {
+            outline: 0;
+        }
+
+        .music-info {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px 15px 0 0;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: calc(100% - 40px);
+            padding: 10px 10px 10px 150px;
+            opacity: 0;
+            transform: translateY(0%);
+            transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+            z-index: 0;
+        }
+
+        .music-container.play .music-info {
+            opacity: 1;
+            transform: translateY(-100%);
+        }
+
+        .music-info h4 {
+            margin: 0;
+        }
+
+        .progress-container {
+            background: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            height: 4px;
+            width: 100%;
+        }
+
+        .progress {
+            background-color: #fe8daa;
+            border-radius: 5px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+
+    </style>
+    <div class="jumbotron text-center">
+        <h1>Spotify</h1>
+        {% from "includes/_formhelpers.html" import render_field %}
+    </div>
+    <div class="jumbotron">
+        <form method="POST" action="">
+            <div class="form-row">
+                <div class="col-md-2 mb-3">
+                    {{ render_field(form.query,class_="form-control") }}
+                </div>
+                <div class="col-md-10 mb-3">
+                    <label for="songSearch">Search</label>
+                    <input type="text" id="songSearch" name="Search" placeholder="Enter Song to Search"
+                           class="form-control"
+                           aria-describedby="emailHelp">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" name="onPress" value="mainSearch">Submit</button>
+
+            <hr>
+
+            <tr>
+                <h3 class="jumbotron-fluid">Songs</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel" class="owl-carousel">
+                    {% for i in session.songDet %}
+                        <div class="item">
+                            <div class="w-full">
+                                <a class="block relative h-48 rounded overflow-hidden">
+                                    <img id="songSelect"
+                                         class="object-cover object-center w-full h-full block"
+                                         src={{ i.songImage }}>
+                                </a>
+                                <div class="mt-4">
+
+                                    <div class="form-row mb-3">
+
+                                        <div class="col-md-4">
+
+
+                                            <button type="submit" class="btn btn-outline-success" name="onPressDown"
+                                                    value="{{ i.songID }}">
+                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                     class="bi bi-download"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" data-fancybox
+                                                    data-options='{"type" : "iframe", "iframe" : {"preload" : false, "css" : {"width" : "600px", "height":"600px" }}}'
+                                                    class="btn btn-outline-success" id="songPopUp"
+                                                    href="{{ i.songUrl }}">
+                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                     class="bi bi-music-player" fill="currentColor"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M12 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M11 3H5v3h6V3zM5 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5zm3 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                    <circle cx="8" cy="11" r="1"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <button type="submit" class="btn btn-outline-success" name="onPress"
+                                                    value={{ i.songID }}
+                                                            onclick="document.getElementById('songSearch').value='';">
+
+                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                     class="bi bi-search"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium"
+                                        id="songSelect">{{ i.songName }}</h2>
+                                    <br>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Artists</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel1" class="owl-carousel">
+                    {% for i in session.artDet %}
+                        <div class="item">
+                            <div class="w-full">
+                                <a class="block relative h-48 rounded overflow-hidden">
+                                    <img id="songSelect"
+                                         class="object-cover object-center w-full h-full block"
+                                         src={{ i.artistImage }}>
+                                </a>
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Name</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium"
+                                        id="songSelect">{{ i.artistName }}</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+
+        jQuery("#carousel").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+
+        jQuery("#carousel1").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+
+        const musicContainer = document.getElementById('music-container');
+        const playBtn = document.getElementById('play');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+
+        const audio = document.getElementById('audio');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const title = document.getElementById('title');
+        const cover = document.getElementById('cover');
+    </script>
+
+{% endblock %}

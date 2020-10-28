@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <style>
+        body {
+            margin: 0;
+            background-size: auto;
+            background-image: url(static/images/index.jpg);
+        }
+        .zoom {
+            padding: 50px;
+            transition: transform .2s; /* Animation */
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        .zoom:hover {
+            transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+        .zoom2 {
+            padding: 50px;
+            transition: transform .2s; /* Animation */
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        .zoom2:hover {
+            transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    </style>
+    <section class="text-gray-700 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap jumbotron">
+            <div class="flex w-full mb-20 flex-wrap">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Most Popular Album Covers Worldwide</h1>
+                <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
+            </div>
+            <div class="flex flex-wrap md:-m-2 -m-1">
+                <div class="flex flex-wrap w-1/2">
+                    <div class="md:p-2 p-1 w-1/2 zoom">
+                        <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://upload.wikimedia.org/wikipedia/en/b/b5/ImagineDragonsEvolve.jpg">
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 zoom">
+                        <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://m.media-amazon.com/images/I/61zhg7KOfXL._SS500_.jpg">
+                    </div>
+                    <div class="md:p-2 p-1 w-full zoom2">
+                        <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://images-na.ssl-images-amazon.com/images/I/91Ph%2BuTyyxL._SL1500_.jpg">
+                    </div>
+                </div>
+                <div class="flex flex-wrap w-1/2">
+                    <div class="md:p-2 p-1 w-full zoom2">
+                        <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://i.pinimg.com/originals/8c/c6/20/8cc620675930958c97e0bd3e83ed2113.png">
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 zoom">
+                        <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://img.discogs.com/IEVCO74jeMcaT7_gM4CWXwXXLlk=/fit-in/600x588/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-13791111-1561219631-5685.jpeg.jpg">
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 zoom">
+                        <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://www.udiscovermusic.com/wp-content/uploads/2018/05/Maroon-5-V-Album-Cover-Web-Optimised-820.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

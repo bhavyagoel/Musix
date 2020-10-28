@@ -1,0 +1,22 @@
+beautifulsoup4==4.9.3
+email-validator==  1.1.1
+Flask==      1.1.2
+Flask-Mail==    0.9.1
+Flask-MySQLdb==  0.2.0
+Flask-WTF==   0.14.3
+gunicorn==  20.0.4
+itsdangerous==   1.1.0
+mutagen~=1.45.1
+mysqlclient==     2.0.1
+passlib==     1.7.4
+pathlib==     1.0.1
+phonenumbers~=8.10.14
+requests== 2.24.0
+spotipy~=2.16.0
+WTForms~=2.3.2
+werkzeug~=1.0.1
+tqdm
+# spotdl
+# pytube
+https://github.com/spotDL/spotify-downloader/archive/next-rel-dev.zip
+git+https://github.com/nficano/pytube

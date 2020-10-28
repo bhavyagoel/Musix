@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <style>
+        body {
+            margin: 0;
+            background-size: auto;
+            background-image: url(static/images/index.jpg);
+        }
+    </style>
+
+    <div class="jumbotron text-center">
+        <h1>Add Songs</h1>
+        {% from "includes/_formhelpers.html" import render_field %}
+    </div>
+    <div class="jumbotron">
+        <form method="POST" action="" , enctype=multipart/form-data>
+            <div class="form-group">
+                {{ render_field(form.Name,class_="form-control") }}
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.Song_ID,class_="form-control") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.GenreName,class_="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fileSong">Song File</label>
+                <input type=file name=fileSong id="fileSong" class="btn btn-outline-success col-md-12">
+            </div>
+            <div class="form-group">
+                <label for="fileImage">Song Cover Image</label>
+                <input type=file name=fileImage id="fileImage" class="btn btn-outline-success col-md-12">
+            </div>
+
+            <div class="form-row form-group">
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.Year,class_="form-control") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ render_field(form.Artists,class_="form-control") }}
+                </div>
+            </div>
+            <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+        </form>
+    </div>
+
+{% endblock %}

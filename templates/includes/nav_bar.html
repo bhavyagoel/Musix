@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">MusiX</a>
+    <button class="navbar-toggler d-block d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/Albums">Album</a>
+            </li>
+            {% if session.id == "UID0001" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Users</a>
+                </li>
+            {% endif %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="/connect">Contributors</a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if session.logged_in %}
+                {% if session.id == "UID0001" %}
+                    <a href="/createSearchData">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Spotify</button>
+                    </a>
+                    <a href="/add_song">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Add Song</button>
+                    </a>
+                    <a href="/add_album">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Create Album</button>
+                    </a>
+                    <a href="/add_artist">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Add Artist</button>
+                    </a>
+                    <a href="/add_genre">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Add Genre</button>
+                    </a>
+                {% endif %}
+
+                <li class="nav-item active">
+                    <a href="/dashboard">
+                        <button type="button" class="btn btn-primary my-2 mr-2">Dashboard</button>
+                    </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a href="/logout">
+                        <button type="button" class="btn btn-danger my-2 mr-2">Logout</button>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a href="/register">
+                        <button type="button" class="btn btn-outline-secondary my-2 mr-2">Register</button>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="/login">
+                        <button type="button" class="btn btn-outline-primary my-2 mr-2">Login</button>
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>

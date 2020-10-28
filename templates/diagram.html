@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <style>
+        .zoom {
+            padding: 0px;
+            transition: transform .2s; /* Animation */
+            background-color:white;
+            width: 1000px;
+            height: 420px;
+            margin: 0 auto;
+        }
+
+        .zoom:hover {
+            transform: scale(1.87); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+    </style>
+    <section class="text-gray-700 body-font">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <img class="lg:max-h-full lg:max-w-full object-cover object-center rounded zoom" alt="hero"
+                 src="static/images/diagram.png">
+            <div class="text-center lg:w-2/3 w-full">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Entity Relationship Diagram </h1>
+                <p class="mb-8 leading-relaxed">Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing
+                    tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon mustache umami
+                    snackwave tilde chillwave ugh. Pour-over meditation PBR&B pickled ennui celiac mlkshk freegan photo
+                    booth af fingerstache pitchfork.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

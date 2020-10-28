@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <style>
+        body {
+            margin: 0;
+            background-size: auto;
+            background-image: url(static/images/index.jpg);
+        }
+    </style>
+    <div class="jumbotron text-center">
+        <h1>Login</h1>
+    </div>
+    <div class="jumbotron">
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">UserName</label>
+                <input type="text" name = "User_ID" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ,
+                       value={{ request.form.User_ID }}>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your confidential details with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="Password" class="form-control" id="exampleInputPassword1" ,
+                       value={{ request.form.Password }}>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
