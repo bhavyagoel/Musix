@@ -217,13 +217,13 @@ def createSearchData():
                         for path in execute(bashCommand1):
                             print(path, end="")
 
-                    T1 = Process(target=func1, args=())
-                    T2 = Process(target=nw, args=())
+                    T1 = Thread(target=func1, args=())
+                    T2 = Thread(target=nw, args=())
                     T1.start()
                     T2.start()
                     for i in range(12):
                         if T2.is_alive():
-                            alpha = Process(target=func1, args=())
+                            alpha = Thread(target=func1, args=())
                             alpha.start()
                             alpha.join()
                             time.sleep(10)
