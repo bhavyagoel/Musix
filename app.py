@@ -210,22 +210,22 @@ def createSearchData():
 
                     # output1, error1 = process.communicate()
                     i = 0
-                    while i < 30:
-                        print("\n--------SPOTDL-----------\n")
-                        sys.stdout.flush()
+                    op = Thread(group=None,
+                                target=lambda: os.system(bashCommand1))
+                    # while i < 30:
+                    print("\n--------SPOTDL-----------\n")
+                    sys.stdout.flush()
+                    op.run()
+                    sys.stdout.flush()
+                    print("\n--------------WORKING---------\n")
 
-                        op = Thread(group=None, target=lambda: os.system(bashCommand1))
-                        op.run()
-                        sys.stdout.flush()
-                        print("\n--------------WORKING---------\n")
-                        i += 1
-                        while op.isAlive():
-                            print("\nThread ALIVE\n", end="", flush=True)
-                        if not op.isAlive():
-                            i = 31
-                        time.sleep(5)
-                        # print(output1)
-                        # print(error1)
+                    # i += 1
+                    #
+                    # if not op.isAlive():
+                    #     i = 31
+                    # time.sleep(5)
+                    # print(output1)
+                    # print(error1)
 
                     def nw():
                         for path in execute(bashCommand1):
@@ -243,6 +243,8 @@ def createSearchData():
                     #         time.sleep(10)
                     # T1.join()
                     # T2.join()
+                    while op.isAlive():
+                        print("\nThread ALIVE\n", end="")
                     print("""111111111111111""")
 
                     output2, error2 = process2.communicate()
