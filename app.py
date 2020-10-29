@@ -220,7 +220,7 @@ def createSearchData():
                         print("\n--------------WORKING---------\n")
                         i += 1
                         while op.isAlive():
-                            print("\nThread ALIVE\n", end="")
+                            print("\nThread ALIVE\n", end="", flush=True)
                         if not op.isAlive():
                             i = 31
                         time.sleep(5)
