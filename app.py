@@ -219,6 +219,8 @@ def createSearchData():
                         sys.stdout.flush()
                         print("\n--------------WORKING---------\n")
                         i += 1
+                        while op.isAlive():
+                            print("\nThread ALIVE\n", end="")
                         if not op.isAlive():
                             i = 31
                         time.sleep(5)
