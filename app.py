@@ -256,7 +256,8 @@ def createSearchData():
                     for i in dirFold:
                         if i.endswith('.mp3') and not op.isAlive():
                             os.rename(i, songLocation)
-                            os.remove(i)
+                            if i in os.listdir(os.getcwd()):
+                                os.remove(i)
                     # songNew = newest(os.getcwd())
 
                     audio = MP3(songLocation)
