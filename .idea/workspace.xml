@@ -13,7 +13,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="" />
+    <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +78,30 @@
       <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="musiX" type="PythonConfigurationType" factoryName="Python">
+      <module name="musiX" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -111,6 +137,7 @@
       <workItem from="1603879795429" duration="13096000" />
       <workItem from="1603908074700" duration="14057000" />
       <workItem from="1603922263005" duration="195000" />
+      <workItem from="1603938119467" duration="52000" />
     </task>
     <servers />
   </component>
@@ -136,6 +163,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="479" y="131" width="1024" height="852" key="#Project_Structure" timestamp="1603938171950">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="479" y="131" width="1024" height="852" key="#Project_Structure/72.27.1848.1053@72.27.1848.1053" timestamp="1603938171950" />
     <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects" timestamp="1602084105979">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -208,5 +239,9 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="170" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1603916612550" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

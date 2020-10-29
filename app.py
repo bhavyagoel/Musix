@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import os
 import subprocess
 from datetime import date
@@ -25,7 +23,7 @@ from multiprocessing import Process
 
 
 def func1():
-    time.sleep(10)
+    # time.sleep(10)
     print('Working', end='')
 
 
@@ -215,20 +213,20 @@ def createSearchData():
                     # print(error1)
                     def nw():
                         for path in execute(bashCommand1):
-                            print(path, end="")
+                            print(path, end="", flush=True)
 
-                    T1 = Thread(target=func1, args=())
+                    # T1 = Thread(target=func1, args=())
                     T2 = Thread(target=nw, args=())
-                    T1.start()
+                    # T1.start()
                     T2.start()
-                    for i in range(12):
-                        if T2.is_alive():
-                            alpha = Thread(target=func1, args=())
-                            alpha.start()
-                            alpha.join()
-                            time.sleep(10)
-                    T1.join()
-                    T2.join()
+                    # for i in range(12):
+                    #     if T2.is_alive():
+                    #         alpha = Thread(target=func1, args=())
+                    #         alpha.start()
+                    #         alpha.join()
+                    #         time.sleep(10)
+                    # T1.join()
+                    # T2.join()
                     print("""111111111111111""")
 
                     output2, error2 = process2.communicate()
