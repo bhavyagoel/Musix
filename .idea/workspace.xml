@@ -14,7 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Salman Ali, Muskaan, Sajid-Wajid - Awara (From 'Dabangg 3').mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Temp/Salman Ali Muskaan Sajid-Wajid - Awara (From Dabangg 3).mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Awara (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Chori Kiya Re Jiya (From Dabangg).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Dagabaaz Re (From Dabangg 2).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Habibi Ke Nain (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Hud Hud (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Hud Hud Dabangg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Munna Badnaam Hua (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Tere Mast Mast Do Nain (From Dabangg).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Thick Niggas and Anime Tiddies.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Yu Karke (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/song/Awara (From Dabangg 3).mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/musiX.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/artistID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/artistID.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/songID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/songID.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +76,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -79,6 +103,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="musiX" type="PythonConfigurationType" factoryName="Python">
       <module name="musiX" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,7 +172,7 @@
       <workItem from="1603879795429" duration="13096000" />
       <workItem from="1603908074700" duration="14057000" />
       <workItem from="1603922263005" duration="195000" />
-      <workItem from="1603938119467" duration="52000" />
+      <workItem from="1603938119467" duration="3007000" />
     </task>
     <servers />
   </component>
@@ -163,6 +198,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="625" y="235" width="732" height="644" key="#Inspections" timestamp="1603938200329">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="625" y="235" width="732" height="644" key="#Inspections/72.27.1848.1053@72.27.1848.1053" timestamp="1603938200329" />
     <state x="479" y="131" width="1024" height="852" key="#Project_Structure" timestamp="1603938171950">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -179,10 +218,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1602003119137" />
-    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603888114978">
+    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603940999605">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1603888114978" />
+    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1603940999605" />
     <state x="679" y="290" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602478221556">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

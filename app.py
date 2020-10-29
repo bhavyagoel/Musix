@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 from datetime import date
 import time
 from functools import wraps
@@ -208,17 +209,30 @@ def createSearchData():
                     process2 = subprocess.Popen(bashCommand2, stdout=subprocess.PIPE)
 
                     # output1, error1 = process.communicate()
-                    # os.system(bashCommand1)
-                    # print(output1)
-                    # print(error1)
+                    i = 0
+                    while i < 30:
+                        print("\n--------SPOTDL-----------\n")
+                        sys.stdout.flush()
+
+                        op = Thread(group=None, target=lambda: os.system(bashCommand1))
+                        op.run()
+                        sys.stdout.flush()
+                        print("\n--------------WORKING---------\n")
+                        i += 1
+                        if not op.isAlive():
+                            i = 31
+                        time.sleep(5)
+                        # print(output1)
+                        # print(error1)
+
                     def nw():
                         for path in execute(bashCommand1):
                             print(path, end="", flush=True)
 
                     # T1 = Thread(target=func1, args=())
-                    T2 = Thread(target=nw, args=())
+                    # T2 = Thread(target=nw, args=())
                     # T1.start()
-                    T2.start()
+                    # T2.start()
                     # for i in range(12):
                     #     if T2.is_alive():
                     #         alpha = Thread(target=func1, args=())
@@ -233,16 +247,21 @@ def createSearchData():
                     songLocation = 'templates/temp/song/' + fileName + ".mp3"
                     imgLocation = filePath + ".jpeg"
                     # time.sleep(5)
-                    print("""BGGBGGBGBG""")
 
                     dirFold = os.listdir(os.getcwd())
-                    # print(dirFold)
-                    if "Temp" in dirFold:
-                        shutil.rmtree("Temp")
-                    songNew = newest(os.getcwd())
-                    os.rename(songNew, songLocation)
+                    print(dirFold)
+                    # if 'Temp' in dirFold:
+                    #     print("TEMP PRESENT")
+                    #     shutil.rmtree("Temp")
+                    for i in dirFold:
+                        if i.endswith('.mp3') and not op.isAlive():
+                            os.rename(i, songLocation)
+                            os.remove(i)
+                    # songNew = newest(os.getcwd())
+
                     audio = MP3(songLocation)
                     Duration = audio.info.length
+                    print(Duration)
                     audio.clear()
                     releaseYear = alpha['album']['release_date'].split('-')[0]
                     artistDOB = str(date.today())
