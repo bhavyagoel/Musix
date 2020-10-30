@@ -51,9 +51,9 @@ artistList = []
 songList = []
 
 app.config['MYSQL_HOST'] = 'remotemysql.com'
-app.config['MYSQL_USER'] = 'VajWI9bdaI'
-app.config['MYSQL_PASSWORD'] = '3V3jqfy15T'
-app.config['MYSQL_DB'] = 'VajWI9bdaI'
+app.config['MYSQL_USER'] = 'uHYXaqn3oA'
+app.config['MYSQL_PASSWORD'] = 'XcFl2vvV8a'
+app.config['MYSQL_DB'] = 'uHYXaqn3oA'
 
 
 # app.config['MYSQL_HOST'] = 'localhost'

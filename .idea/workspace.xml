@@ -14,68 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/HospitalDA3.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dump.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/review2.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rishikesh.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Baby Ko Bass Pasand Hai (Remix) (From Sultan).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Dabangg Reloaded.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Despacito - Remix.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Gangnam Style (강남스타일).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Hud Hud Dabangg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Munna Badnaam Hua (From Dabangg 3).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Tere Mast Mast Do Nain (From Dabangg).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Baby Ko Bass Pasand Hai (Remix) (From Sultan).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Dabangg Reloaded.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Despacito - Remix.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Gangnam Style (강남스타일).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Hud Hud Dabangg.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Munna Badnaam Hua (From Dabangg 3).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/songs/Tere Mast Mast Do Nain (From Dabangg).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/like_artist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/like_genre.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/like_song.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Baby Ko Bass Pasand Hai (Remix) (From Sultan).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Despacito - Remix.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Despacito.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Gangnam Style (강남스타일).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Baby Ko Bass Pasand Hai (Remix) (From Sultan).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Despacito - Remix.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Despacito.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Gangnam Style (강남스타일).mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/temp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/Rahat Fateh Ali Khan Shreya Ghoshal - Tere Mast Mast Do Nain (From Dabangg).mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.slugignore" beforeDir="false" afterPath="$PROJECT_DIR$/.slugignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_playlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/nav_bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/artistID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/artistID.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/3 in Tha Morn'.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Aids Results.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Awara (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Chori Kiya Re Jiya (From Dabangg).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Dagabaaz Re (From Dabangg 2).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Dick Sweat on My Wrist.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Habibi Ke Nain (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Hud Hud (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Hud Hud Dabangg.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Last Claim.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Munna Badnaam Hua (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Naina Lade (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Tere Mast Mast Do Nain (From Dabangg).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Thick Niggas and Anime Tiddies.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/image/Yu Karke (From Dabangg 3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/song/3 in Tha Morn'.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/song/Awara (From Dabangg 3).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/song/Munna Badnaam Hua (From Dabangg 3).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/song/Naina Lade (From Dabangg 3).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/song/Tere Mast Mast Do Nain (From Dabangg).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp/songID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/songID.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +156,7 @@
       <workItem from="1603980704057" duration="12668000" />
       <workItem from="1604048471904" duration="25781000" />
       <workItem from="1604081098870" duration="462000" />
-      <workItem from="1604081624753" duration="5967000" />
+      <workItem from="1604081624753" duration="7578000" />
     </task>
     <servers />
   </component>
