@@ -596,16 +596,50 @@ WHERE Login.Login_ID = User.User_ID
   AND Login.Login_ID = Register.Register_ID;
 
 
-SELECT Album.Name AS AlbName, COUNT(Album_Song.Song_ID) AS SongCount, Album.Album_ID FROM Album, Song, Album_Song WHERE Album.Album_ID = Album_Song.Album_ID AND Album_Song.Song_ID = Song.Song_ID GROUP BY Album.Album_ID;
+SELECT Album.Name AS AlbName, COUNT(Album_Song.Song_ID) AS SongCount, Album.Album_ID
+FROM Album,
+     Song,
+     Album_Song
+WHERE Album.Album_ID = Album_Song.Album_ID
+  AND Album_Song.Song_ID = Song.Song_ID
+GROUP BY Album.Album_ID;
 
-SELECT Song.Name FROM Album_Song, Song WHERE Album_Song.Song_ID = Song.Song_ID AND Album_Song.Album_ID='ALID0001';
+SELECT Song.Name
+FROM Album_Song,
+     Song
+WHERE Album_Song.Song_ID = Song.Song_ID
+  AND Album_Song.Album_ID = 'ALID0001';
 
 
-SELECT * FROM Genre;
+SELECT *
+FROM Genre;
 
-SELECT Playlist.Name AS PltName, COUNT(Playlist_Song.Song_ID) AS SongCount, Playlist.Playlist_ID FROM Playlist, Song, Playlist_Song WHERE Playlist.Playlist_ID = Playlist_Song.Playlist_ID AND Playlist_Song.Song_ID = Song.Song_ID  AND Playlist.User_ID='UID0002' GROUP BY Playlist.Playlist_ID;
+SELECT Playlist.Name AS PltName, COUNT(Playlist_Song.Song_ID) AS SongCount, Playlist.Playlist_ID
+FROM Playlist,
+     Song,
+     Playlist_Song
+WHERE Playlist.Playlist_ID = Playlist_Song.Playlist_ID
+  AND Playlist_Song.Song_ID = Song.Song_ID
+  AND Playlist.User_ID = 'UID0002'
+GROUP BY Playlist.Playlist_ID;
+
+SELECT *
+FROM User,
+     Login,
+     Register
+WHERE Login.Login_ID = User.User_ID
+  AND Login.Login_ID = Register.Register_ID
+  AND Login.Login_ID != 'UID0001';
 
 
-SELECT Artist.Name FROM Artist, Interest_User_Artist WHERE Artist.Artist_ID = Interest_User_Artist.Artist_ID AND Interest_User_Artist.User_ID='UID0002';
+SELECT Artist.Name
+FROM Artist,
+     Interest_User_Artist
+WHERE Artist.Artist_ID = Interest_User_Artist.Artist_ID
+  AND Interest_User_Artist.User_ID = 'UID0002';
 
-SELECT Song.Song_ID FROM Song, User_Likes WHERE Song.Song_ID = User_Likes.Song_ID AND User_Likes.User_ID='UID0001';
+SELECT Song.Song_ID
+FROM Song,
+     User_Likes
+WHERE Song.Song_ID = User_Likes.Song_ID
+  AND User_Likes.User_ID = 'UID0001';

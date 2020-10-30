@@ -830,6 +830,7 @@ def dashboard():
             "AND Login.Login_ID =  Register.Register_ID "
             "AND Login.Login_ID != 'UID0001'")
         if result > 0:
+            empty = cur.fetchone()
             allUser = cur.fetchall()
             # print(allUser)
             session["allUser"] = allUser
@@ -849,6 +850,7 @@ def dashboard():
             # print(allAlbum)
             k = 0
             for i in allAlbum:
+
                 # print(i['AlbName'])
                 albName.append(i['AlbName'])
                 albSongCount.append(i['SongCount'])
