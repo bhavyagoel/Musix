@@ -2,14 +2,11 @@ import os
 import subprocess
 import sys
 from datetime import date
-import time
 from functools import wraps
-import shutil
+from threading import Thread
 
 import phonenumbers
-import requests
 import spotipy
-from bs4 import BeautifulSoup
 from flask import Flask, render_template, flash, redirect, url_for, session, request
 from flask_mail import Mail, Message
 from flask_mysqldb import MySQL
@@ -19,9 +16,6 @@ from passlib.hash import sha256_crypt
 from spotipy.oauth2 import SpotifyClientCredentials
 from werkzeug.utils import secure_filename
 from wtforms import Form, StringField, PasswordField, validators, SelectField, ValidationError, SelectMultipleField
-from threading import Thread
-from multiprocessing import Process
-import babel
 
 
 def func1():
