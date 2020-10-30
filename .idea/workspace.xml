@@ -14,19 +14,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dbangz - 3 in Tha Morn'.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Temp/Rahat Fateh Ali Khan Shreya Ghoshal - Tere Mast Mast Do Nain (From Dabangg).mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/3 in Tha Morn'.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Aids Results.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Dick Sweat on My Wrist.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/image/Last Claim.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/3 in Tha Morn'.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Munna Badnaam Hua (From Dabangg 3).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp/song/Tere Mast Mast Do Nain (From Dabangg).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalDA3.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dump.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/review2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rishikesh.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Baby Ko Bass Pasand Hai (Remix) (From Sultan).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Dabangg Reloaded.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Despacito - Remix.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Gangnam Style (강남스타일).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Hud Hud Dabangg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Munna Badnaam Hua (From Dabangg 3).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Tere Mast Mast Do Nain (From Dabangg).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Baby Ko Bass Pasand Hai (Remix) (From Sultan).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Dabangg Reloaded.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Despacito - Remix.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Gangnam Style (강남스타일).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Hud Hud Dabangg.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Munna Badnaam Hua (From Dabangg 3).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/songs/Tere Mast Mast Do Nain (From Dabangg).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/like_artist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/like_genre.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/like_song.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Baby Ko Bass Pasand Hai (Remix) (From Sultan).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Despacito - Remix.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Despacito.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/image/Gangnam Style (강남스타일).jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/song/Baby Ko Bass Pasand Hai (Remix) (From Sultan).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/song/Despacito - Remix.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/song/Despacito.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/temp/song/Gangnam Style (강남스타일).mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/Salman Ali Muskaan Sajid-Wajid - Awara (From Dabangg 3).mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/Rahat Fateh Ali Khan Shreya Ghoshal - Tere Mast Mast Do Nain (From Dabangg).mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_playlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/nav_bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/temp/artistID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/artistID.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/3 in Tha Morn'.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Aids Results.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Awara (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Chori Kiya Re Jiya (From Dabangg).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Dagabaaz Re (From Dabangg 2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Dick Sweat on My Wrist.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Habibi Ke Nain (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Hud Hud (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Hud Hud Dabangg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Last Claim.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Munna Badnaam Hua (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Naina Lade (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Tere Mast Mast Do Nain (From Dabangg).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Thick Niggas and Anime Tiddies.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/image/Yu Karke (From Dabangg 3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/song/3 in Tha Morn'.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/song/Awara (From Dabangg 3).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/song/Munna Badnaam Hua (From Dabangg 3).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/song/Naina Lade (From Dabangg 3).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp/song/Tere Mast Mast Do Nain (From Dabangg).mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/temp/songID.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp/songID.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +118,6 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
@@ -162,7 +209,12 @@
       <workItem from="1603879795429" duration="13096000" />
       <workItem from="1603908074700" duration="14057000" />
       <workItem from="1603922263005" duration="195000" />
-      <workItem from="1603938119467" duration="4545000" />
+      <workItem from="1603938119467" duration="6113000" />
+      <workItem from="1603980317075" duration="359000" />
+      <workItem from="1603980704057" duration="12668000" />
+      <workItem from="1604048471904" duration="25781000" />
+      <workItem from="1604081098870" duration="462000" />
+      <workItem from="1604081624753" duration="5967000" />
     </task>
     <servers />
   </component>
@@ -192,66 +244,70 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="625" y="235" width="732" height="644" key="#Inspections/72.27.1848.1053@72.27.1848.1053" timestamp="1603938200329" />
-    <state x="479" y="131" width="1024" height="852" key="#Project_Structure" timestamp="1603938171950">
+    <state x="479" y="131" width="1024" height="852" key="#Project_Structure" timestamp="1604049269668">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="479" y="131" width="1024" height="852" key="#Project_Structure/72.27.1848.1053@72.27.1848.1053" timestamp="1603938171950" />
-    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects" timestamp="1602084105979">
+    <state x="479" y="131" width="1024" height="852" key="#Project_Structure/72.27.1848.1053@72.27.1848.1053" timestamp="1604049269668" />
+    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects" timestamp="1603980796594">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects/72.27.1848.1053@72.27.1848.1053" timestamp="1602084105979" />
-    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages" timestamp="1602130789383">
+    <state x="543" y="390" width="1367" height="333" key="#SQL_Dialects/72.27.1848.1053@72.27.1848.1053" timestamp="1603980796594" />
+    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages" timestamp="1604072798214">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages/72.27.1848.1053@72.27.1848.1053" timestamp="1602130789383" />
-    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602003119137">
+    <state x="72" y="397" width="1110" height="320" key="#Template_Data_Languages/72.27.1848.1053@72.27.1848.1053" timestamp="1604072798214" />
+    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604080579421">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1602003119137" />
-    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603940999605">
+    <state x="591" y="215" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1604080579421" />
+    <state x="101" y="355" width="1100" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604050001520">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="101" y="355" width="855" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1603940999605" />
+    <state x="101" y="355" width="1100" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1604050001520" />
     <state x="679" y="290" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602478221556">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="679" y="290" width="624" height="533" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1602478221556" />
-    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1603888150556">
+    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1604081650975">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY/72.27.1848.1053@72.27.1848.1053" timestamp="1603888150556" />
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603888136886">
+    <state x="679" y="311" width="624" height="491" key="DUMP_DIALOG_DIMENSION_KEY/72.27.1848.1053@72.27.1848.1053" timestamp="1604081650975" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603998558374">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1603888136886" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1603998558374" />
     <state x="857" y="453" width="277" height="207" key="Github.ShareDialog" timestamp="1601962778532">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="857" y="453" width="277" height="207" key="Github.ShareDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601962778532" />
-    <state width="716" height="324" key="GridCell.Tab.0.bottom" timestamp="1602901365056">
+    <state width="572" height="215" key="GridCell.Tab.0.bottom" timestamp="1604086734810">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="716" height="324" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
-    <state width="716" height="324" key="GridCell.Tab.0.center" timestamp="1602901365056">
+    <state width="572" height="215" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1604086734810" />
+    <state width="572" height="215" key="GridCell.Tab.0.center" timestamp="1604086734808">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="716" height="324" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
-    <state width="716" height="324" key="GridCell.Tab.0.left" timestamp="1602901365055">
+    <state width="572" height="215" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1604086734808" />
+    <state width="572" height="215" key="GridCell.Tab.0.left" timestamp="1604086734807">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="716" height="324" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365055" />
-    <state width="716" height="324" key="GridCell.Tab.0.right" timestamp="1602901365056">
+    <state width="572" height="215" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1604086734806" />
+    <state width="572" height="215" key="GridCell.Tab.0.right" timestamp="1604086734809">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="716" height="324" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602901365056" />
+    <state width="572" height="215" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1604086734809" />
     <state x="498" y="111" width="1024" height="852" key="SettingsEditor" timestamp="1603910332676">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="498" y="111" width="1024" height="852" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1603910332676" />
-    <state x="869" y="254" width="367" height="613" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602901256160">
+    <state x="869" y="254" width="367" height="725" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1604081402141">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="869" y="254" width="367" height="613" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/72.27.1848.1053@72.27.1848.1053" timestamp="1602901256160" />
+    <state x="869" y="254" width="367" height="725" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/72.27.1848.1053@72.27.1848.1053" timestamp="1604081402141" />
+    <state x="564" y="84" width="560" height="875" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604081523790">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="564" y="84" width="560" height="875" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1604081523790" />
     <state x="395" y="244" width="878" height="743" key="dock-window-1" timestamp="1603001257974">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -260,14 +316,14 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="590" y="155" width="802" height="803" key="new project wizard/72.27.1848.1053@72.27.1848.1053" timestamp="1603124656038" />
-    <state x="228" y="252" key="run.anything.popup" timestamp="1602188758952">
+    <state x="228" y="252" key="run.anything.popup" timestamp="1603994809997">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="228" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1602188758952" />
-    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1603916612550">
+    <state x="228" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1603994809997" />
+    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1603981175903">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1603916612550" />
+    <state x="170" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1603981175903" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

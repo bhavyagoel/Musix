@@ -61,59 +61,393 @@
     </style>
 
 
+    <div class="jumbotron text-center">
 
 
-    <h1>Welcome, {{ session.name }} !! </h1>
-    {% if session.id != "UID0001" %}
-        <div>
-            <a href="/create_private_playlist">
-                <button type="button" class="btn btn-secondary btn-lg">Create Private Playlist</button>
-            </a>
-        </div>
-        <hr>
-        <table class="table table-stripped table-hover">
+        {% if session.id != "UID0001" %}
+            <h1>Welcome, {{ session.name }} !! </h1>
+            <hr>
             <tr>
-                <th>PLAYLIST NAME</th>
-                <th></th>
+                <h3 class="jumbotron-fluid">Liked Songs</h3>
             </tr>
-            {% for song in songs %}
-                <tr>
-                    <td><a href="play_playlist/{{ song.id }}" class="btn btn-default">{{ song.title }}</a></td>
+            <div class="owl-slider">
+                <div id="carousel" class="owl-carousel">
+                    {% for i in session.likedSongs %}
+                        <div class="item">
+                            <div class="w-full">
+                                <a class="block relative h-48 rounded overflow-hidden">
+                                    <img src= '{{ i.ImageLocation|string }}'  class="object-cover object-center w-full h-full block">
+                                </a>
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Song_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    <p class="mt-1">Release Year : {{ i.Year }}</p>
 
-                    <td></td>
-                    <td><a href="play_playlist/{{ song.id }}" class="btn btn-default pull-right">PLAY</a></td>
-                    <td><a href="/Albums" class="btn btn-danger pull-right ">Add</a></td>
-                    <td><a href="delete_playlist/{{ song.id }}" class="btn btn-default pull-right">DELETE</a></td>
-                    <td></td>
-                </tr>
-            {% endfor %}
-        </table>
-    {% endif %}
-
-
-
-    <div class="owl-slider">
-        <div id="carousel" class="owl-carousel">
-            {% for i in [1,2,3,4,5,6,7,8,9] %}
-                <div class="item">
-                    <div class="w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
-                                 src="https://dummyimage.com/420x260">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                            <p class="mt-1">$16.00</p>
+                                    <p class="mt-1">{{ 2020|int -  i.Year|int }} Years Old</p>
+                                    <p class="mt-1">Duration : {{ i.Duration }} sec</p>
+                                    {#                                <p class="mt-1">$16.00</p>#}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
-    </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Your Playlists</h3>
+            </tr>
 
+
+            <div class="owl-slider">
+                <div id="carousel4" class="owl-carousel">
+                    {% for i in session.allPlaylist %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.pltID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.pltName }}</h2>
+                                    <p class="mt-1">Songs Count : {{ i.pltSongCount }}</p>
+                                    <hr>
+                                    <p class="mt-1"><b>SONGS</b></p>
+
+                                    {% for j in i.pltSongs %}
+                                        <p style="margin-bottom: 5%" class="mt-1">{{ j }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Liked Artists</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel1" class="owl-carousel">
+                    {% for i in session.likedArtist %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Artist_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    <p class="mt-1">DOB : {{ i.DOB }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Genre</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel3" class="owl-carousel">
+                    {% for i in session.likedGenre %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Genre_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    {#                                    <p class="mt-1">Songs Count : {{ i.albSongCount }}</p>#}
+                                    {#                                    <hr>#}
+                                    {#                                    <p class="mt-1"><b>SONGS</b></p>#}
+                                    {##}
+                                    {#                                    {% for j in i.albSongs %}#}
+                                    {#                                        <p style="margin-bottom: 5%" class="mt-1">{{ j }}</p>#}
+                                    {#                                    {% endfor %}#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        {% endif %}
+
+        {% if session.id == "UID0001" %}
+            <h1>Welcome, Administrator !! </h1>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Songs</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel" class="owl-carousel">
+                    {% for i in session.allSongs %}
+                        <div class="item">
+                            <div class="w-full">
+                                <a class="block relative h-48 rounded overflow-hidden">
+                                    <img src= '{{ i.ImageLocation|string }}'  class="object-cover object-center w-full h-full block">
+                                </a>
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Song_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    <p class="mt-1">Release Year : {{ i.Year }}</p>
+
+                                    <p class="mt-1">{{ 2020|int -  i.Year|int }} Years Old</p>
+                                    <p class="mt-1">Duration : {{ i.Duration }} sec</p>
+                                    {#                                <p class="mt-1">$16.00</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Artists</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel1" class="owl-carousel">
+                    {% for i in session.allArtist %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Artist_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    <p class="mt-1">DOB : {{ i.DOB }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Users</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel2" class="owl-carousel">
+                    {% for i in session.allUser %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.User_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+                                    <p class="mt-1">DOB : {{ i.DOB }}</p>
+                                    <p class="mt-1">Gender : {{ i.Gender }}</p>
+                                    <p class="mt-1">Address : {{ i.Address }}</p>
+                                    <p class="mt-1">Mobile : {{ i.Mobile }}</p>
+                                    <p class="mt-1">Email : {{ i.Email_ID }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Genre</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel3" class="owl-carousel">
+                    {% for i in session.allGenre %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.Genre_ID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.Name }}</h2>
+{#                                    <p class="mt-1">Songs Count : {{ i.albSongCount }}</p>#}
+{#                                    <hr>#}
+{#                                    <p class="mt-1"><b>SONGS</b></p>#}
+{##}
+{#                                    {% for j in i.albSongs %}#}
+{#                                        <p style="margin-bottom: 5%" class="mt-1">{{ j }}</p>#}
+{#                                    {% endfor %}#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <tr>
+                <h3 class="jumbotron-fluid">Albums</h3>
+            </tr>
+            <div class="owl-slider">
+                <div id="carousel4" class="owl-carousel">
+                    {% for i in session.allAlbum %}
+                        <div class="item">
+                            <div class="w-full">
+                                {#                            <a class="block relative h-48 rounded overflow-hidden">#}
+                                {#                                <img alt={{ i.Song_ID }} class="object-cover object-center w-full h-full block"#}
+                                {#                                src= {{ i.ImageLocation }}>#}
+                                {#                            </a>#}
+                                <div class="mt-4">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ i.albID }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ i.albName }}</h2>
+                                    <p class="mt-1">Songs Count : {{ i.albSongCount }}</p>
+                                    <hr>
+                                    <p class="mt-1"><b>SONGS</b></p>
+
+                                    {% for j in i.albSongs %}
+                                        <p style="margin-bottom: 5%" class="mt-1">{{ j }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
     <script>
         jQuery("#carousel").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+        jQuery("#carousel1").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+        jQuery("#carousel2").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+        jQuery("#carousel3").owlCarousel({
+            autoplay: true,
+            lazyLoad: true,
+            loop: true,
+            margin: 20,
+            /*
+           animateOut: 'fadeOut',
+           animateIn: 'fadeIn',a
+           */
+            responsiveClass: true,
+            autoHeight: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 800,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 3
+                },
+
+                1024: {
+                    items: 4
+                },
+
+                1366: {
+                    items: 4
+                }
+            }
+        });
+        jQuery("#carousel4").owlCarousel({
             autoplay: true,
             lazyLoad: true,
             loop: true,

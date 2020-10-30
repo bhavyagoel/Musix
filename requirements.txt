@@ -21,3 +21,4 @@ tqdm
 https://github.com/spotDL/spotify-downloader/archive/next-rel-dev.zip
 git+https://github.com/nficano/pytube
 
+

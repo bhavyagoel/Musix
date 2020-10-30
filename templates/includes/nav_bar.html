@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">MusiX</a>
-    <button class="navbar-toggler d-block d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler d-block d-lg-none" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,11 +12,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Albums">Album</a>
             </li>
-            {% if session.id == "UID0001" %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/users">Users</a>
-                </li>
-            {% endif %}
+            {#            {% if session.id == "UID0001" %}#}
+            {#                <li class="nav-item">#}
+            {#                    <a class="nav-link" href="/users">Users</a>#}
+            {#                </li>#}
+            {#            {% endif %}#}
 
             <li class="nav-item">
                 <a class="nav-link" href="/connect">Contributors</a>
@@ -39,6 +40,20 @@
                     </a>
                     <a href="/add_genre">
                         <button type="button" class="btn btn-outline-success my-2 mr-2">Add Genre</button>
+                    </a>
+                {% endif %}
+                {% if session.id != 'UID0001' %}
+                    <a href="/create_private_playlist">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Create Playlist</button>
+                    </a>
+                    <a href="/create_like_song">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Like Song</button>
+                    </a>
+                    <a href="/create_like_artist">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Like Artist</button>
+                    </a>
+                    <a href="/create_like_genre">
+                        <button type="button" class="btn btn-outline-success my-2 mr-2">Like Genre</button>
                     </a>
                 {% endif %}
 
@@ -69,8 +84,8 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchYT">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="" onclick=window.open("https://www.youtube.com/results?search_query="+document.getElementById("searchYT").value)>Search</button>
         </form>
     </div>
 </nav>

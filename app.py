@@ -21,10 +21,10 @@ from werkzeug.utils import secure_filename
 from wtforms import Form, StringField, PasswordField, validators, SelectField, ValidationError, SelectMultipleField
 from threading import Thread
 from multiprocessing import Process
+import babel
 
 
 def func1():
-    # time.sleep(10)
     print('Working', end='')
 
 
@@ -54,6 +54,13 @@ app.config['MYSQL_HOST'] = 'remotemysql.com'
 app.config['MYSQL_USER'] = 'VajWI9bdaI'
 app.config['MYSQL_PASSWORD'] = '3V3jqfy15T'
 app.config['MYSQL_DB'] = 'VajWI9bdaI'
+
+
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'music'
+# app.config['MYSQL_PASSWORD'] = 'password'
+# app.config['MYSQL_DB'] = 'musix'
+
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 app.config.from_pyfile('config.cfg')
@@ -109,7 +116,21 @@ def execute(cmd):
         raise subprocess.CalledProcessError(return_code, cmd)
 
 
+# to prevent using of app without login
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('Unauthorised, Please Login', 'danger')
+            return redirect(url_for('login'))
+
+    return wrap
+
+
 @app.route('/createSearchData', methods=['GET', 'POST'])
+@is_logged_in
 def createSearchData():
     form = Spotify(request.form)
 
@@ -193,13 +214,13 @@ def createSearchData():
                     imgUrl = "https://dummyimage.com/420x260"
                 else:
                     imgUrl = alpha['album']['images'][0]['url']
-                if str(alpha['name']) + '.mp3' not in os.listdir("templates/temp/song"):
+                if str(alpha['name']) + '.mp3' not in os.listdir("static/songs"):
                     fileName = str(alpha['name']).replace("\"", "")
                     print(fileName)
                     fileName = fileName.replace("/", "")
                     # fileName = fileName.replace(" ", "\ ")
                     # fileName = str(fileName)
-                    filePath = 'templates/temp/image/' + fileName
+                    filePath = 'static/images/' + fileName
 
                     bashCommand1 = "spotdl " + songURL
                     bashCommand2 = "wget " + imgUrl + " -O "
@@ -212,57 +233,32 @@ def createSearchData():
                     i = 0
                     op = Thread(group=None,
                                 target=lambda: os.system(bashCommand1))
-                    # while i < 30:
+
                     print("\n--------SPOTDL-----------\n")
                     sys.stdout.flush()
                     op.run()
                     sys.stdout.flush()
                     print("\n--------------WORKING---------\n")
 
-                    # i += 1
-                    #
-                    # if not op.isAlive():
-                    #     i = 31
-                    # time.sleep(5)
-                    # print(output1)
-                    # print(error1)
-
                     def nw():
                         for path in execute(bashCommand1):
                             print(path, end="", flush=True)
 
-                    # T1 = Thread(target=func1, args=())
-                    # T2 = Thread(target=nw, args=())
-                    # T1.start()
-                    # T2.start()
-                    # for i in range(12):
-                    #     if T2.is_alive():
-                    #         alpha = Thread(target=func1, args=())
-                    #         alpha.start()
-                    #         alpha.join()
-                    #         time.sleep(10)
-                    # T1.join()
-                    # T2.join()
                     while op.isAlive():
                         print("\nThread ALIVE\n", end="")
-                    print("""111111111111111""")
 
                     output2, error2 = process2.communicate()
-                    songLocation = 'templates/temp/song/' + fileName + ".mp3"
+                    songLocation = 'static/songs/' + fileName + ".mp3"
                     imgLocation = filePath + ".jpeg"
                     # time.sleep(5)
 
                     dirFold = os.listdir(os.getcwd())
-                    print(dirFold)
-                    # if 'Temp' in dirFold:
-                    #     print("TEMP PRESENT")
-                    #     shutil.rmtree("Temp")
+
                     for i in dirFold:
                         if i.endswith('.mp3') and not op.isAlive():
                             os.rename(i, songLocation)
                             if i in os.listdir(os.getcwd()):
                                 os.remove(i)
-                    # songNew = newest(os.getcwd())
 
                     audio = MP3(songLocation)
                     Duration = audio.info.length
@@ -369,6 +365,7 @@ class NewArtist(Form):
 
 
 @app.route("/add_artist", methods=['GET', 'POST'])
+@is_logged_in
 def addArtist():
     form = NewArtist(request.form)
 
@@ -410,6 +407,7 @@ class NewGenre(Form):
 
 
 @app.route("/add_genre", methods=['GET', 'POST'])
+@is_logged_in
 def addGenre():
     form = NewGenre(request.form)
 
@@ -459,6 +457,7 @@ class NewSong(Form):
 
 
 @app.route("/add_song", methods=['GET', 'POST'])
+@is_logged_in
 def addSong():
     form = NewSong(request.form)
     cur = mysql.connection.cursor()
@@ -487,7 +486,7 @@ def addSong():
                 flash("Only mp3 files supported in Song File field.", 'danger')
                 return redirect(request.url)
             SongFileName = filename
-            fileSong.save(os.path.join('templates/temp/song', filename))
+            fileSong.save(os.path.join('static/songs', filename))
         if 'fileImage' not in request.files:
             flash('No Image File Part', 'danger')
             return redirect(request.url)
@@ -502,10 +501,10 @@ def addSong():
                 flash("Only image type files supported in Image File field.", 'danger')
                 return redirect(request.url)
             ImageFileName = filename
-            fileImage.save(os.path.join('templates/temp/image', filename))
+            fileImage.save(os.path.join('static/images', filename))
 
-        Location = os.path.join('templates/temp/song', SongFileName)
-        ImageLocation = os.path.join('templates/temp/image', ImageFileName)
+        Location = os.path.join('static/songs', SongFileName)
+        ImageLocation = os.path.join('static/images', ImageFileName)
         audio = MP3(Location)
         Duration = audio.info.length
         audio.clear()
@@ -594,6 +593,7 @@ class NewAlbum(Form):
 
 
 @app.route('/add_album', methods=['GET', 'POST'])
+@is_logged_in
 def AddAlbum():
     form = NewAlbum(request.form)
     cur = mysql.connection.cursor()
@@ -801,19 +801,6 @@ def login():
     return render_template('login.html')
 
 
-# to prevent using of app without login
-def is_logged_in(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            flash('Unauthorised, Please Login', 'danger')
-            return redirect(url_for('login'))
-
-    return wrap
-
-
 # logout
 @app.route('/logout')
 def logout():
@@ -822,357 +809,375 @@ def logout():
     return redirect(url_for('index'))
 
 
-# search
-@app.route('/new', methods=['POST'])
-def new():
-    string = ""
-    co = request.form['give']
-    song = co
-    song_name = co + '.mp3'
-    cur = mysql.connection.cursor()
-    result = cur.execute("SELECT * FROM songs_list WHERE song_name=%s", [song_name])
-    albu69 = cur.fetchall()
-    if result > 0:
-        return render_template('search.html', albu=albu69)
-    else:
-        try:
-            page = requests.get("https://www.youtube.com/results?search_query=" + song)
-            soup = BeautifulSoup(page.text, 'html.parser')
-            for div in soup.find_all('div', {"class": "yt-lockup-video"}):
-                if div.get("data-context-item-id") is not None:
-                    video_id = div.get("data-context-item-id")
-                    break
-            os.system(
-                'youtube-dl --extract-audio --audio-format mp3 -o "akhil.mp3" https://www.youtube.com/watch?v=' + video_id)
-            os.system("mv *.mp3 ./static/music/")
-            os.rename("static/music/akhil.mp3", "static/music/" + song_name)
-            string = "/static/music/" + song_name
-            cur = mysql.connection.cursor()
-            cur.execute("INSERT INTO songs_list(path,album,song_name) VALUES (%s,%s,%s)", (string, "NA", song_name))
-            mysql.connection.commit()
-            result = cur.execute("SELECT * FROM songs_list WHERE song_name=%s", [song_name])
-            albu99 = cur.fetchall()
-            return render_template('search.html', albu=albu99)
-        except NameError:
-            flash('Song Not Found', 'success')
-            return render_template('dashboard.html')
-
-
 @app.route('/dashboard')
 @is_logged_in
 def dashboard():
-    cur = mysql.connection.cursor()
+    if session['username'] == 'UID0001':
+        cur = mysql.connection.cursor()
+        result = cur.execute("SELECT * FROM Song")
+        if result > 0:
+            allSongs = cur.fetchall()
+            # print(allSongs)
+            # print(os.getcwd())
+            session["allSongs"] = allSongs
+        cur.close()
+        # print(allSongs)
+        cur = mysql.connection.cursor()
+        result = cur.execute("SELECT * FROM Artist")
+        if result > 0:
+            allArtist = cur.fetchall()
+            session["allArtist"] = allArtist
+        cur.close()
+        # print(allArtist)
+        cur = mysql.connection.cursor()
+        result = cur.execute(
+            "SELECT * FROM User, Login, Register "
+            "WHERE Login.Login_ID = User.User_ID "
+            "AND Login.Login_ID =  Register.Register_ID "
+            "AND Login.Login_ID != 'UID0001'")
+        if result > 0:
+            allUser = cur.fetchall()
+            # print(allUser)
+            session["allUser"] = allUser
+        cur.close()
+        cur = mysql.connection.cursor()
+        result = cur.execute(
+            "SELECT Album.Name AS AlbName, COUNT(Album_Song.Song_ID) AS SongCount, Album.Album_ID FROM Album, Song, "
+            "Album_Song WHERE Album.Album_ID = Album_Song.Album_ID AND Album_Song.Song_ID = Song.Song_ID GROUP BY "
+            "Album.Album_ID")
+        # print(result)
+        if result > 0:
+            albName = []
+            albSongCount = []
+            albSongs = []
+            albID = []
+            allAlbum = cur.fetchall()
+            # print(allAlbum)
+            k = 0
+            for i in allAlbum:
+                # print(i['AlbName'])
+                albName.append(i['AlbName'])
+                albSongCount.append(i['SongCount'])
+                albID.append(i['Album_ID'])
+                cur2 = mysql.connection.cursor()
+                result2 = cur2.execute(
+                    "SELECT Song.Name FROM Album_Song, Song WHERE Album_Song.Song_ID = Song.Song_ID AND "
+                    "Album_Song.Album_ID=%s",
+                    [i['Album_ID']])
+                albSongs.append([])
+                for j in cur2.fetchall():
+                    albSongs[k].append(j['Name'])
+                k += 1
+                cur2.close()
+            AlbDet = [{'albName': t[0], 'albSongCount': t[1], 'albSongs': t[2], 'albID': t[3]}
+                      for t in
+                      zip(albName, albSongCount, albSongs, albID)]
+            session["allAlbum"] = AlbDet
+            # print(AlbDet)
+        cur.close()
+        cur = mysql.connection.cursor()
+        result = cur.execute(
+            "SELECT * FROM Genre")
+        # print(result)
+        if result > 0:
+            allGenre = cur.fetchall()
+            print(allGenre)
+            session['allGenre'] = allGenre
 
-    # result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    #
-    # songs = cur.fetchall()
-    #
-    # if result > 0:
-    #     return render_template('dashboard.html', songs=songs)
-    # else:
-    #     msg = "NO PLAYLIST FOUND "
-    # cur.close()
-    return render_template('dashboard.html', msg="DASHBOARD")
+        cur.close()
+    if session['username'] != 'UID0001':
+        cur = mysql.connection.cursor()
+        result = cur.execute(
+            "SELECT Playlist.Name AS PltName, COUNT(Playlist_Song.Song_ID) AS SongCount, Playlist.Playlist_ID FROM "
+            "Playlist, Song, Playlist_Song WHERE Playlist.Playlist_ID = Playlist_Song.Playlist_ID AND "
+            "Playlist_Song.Song_ID = Song.Song_ID  AND Playlist.User_ID=%s GROUP BY Playlist.Playlist_ID",
+            [session['username']])
+        # print(result)
+        if result > 0:
+            pltName = []
+            pltSongCount = []
+            pltSongs = []
+            pltID = []
+            allPlaylist = cur.fetchall()
+            # print(allAlbum)
+            k = 0
+            for i in allPlaylist:
+                # print(i['AlbName'])
+                pltName.append(i['PltName'])
+                pltSongCount.append(i['SongCount'])
+                pltID.append(i['Playlist_ID'])
+                cur2 = mysql.connection.cursor()
+                result2 = cur2.execute(
+                    "SELECT Song.Name FROM Playlist_Song, Song WHERE Playlist_Song.Song_ID = Song.Song_ID AND "
+                    "Playlist_Song.Playlist_ID=%s",
+                    [i['Playlist_ID']])
+                pltSongs.append([])
+                for j in cur2.fetchall():
+                    pltSongs[k].append(j['Name'])
+                k += 1
+                cur2.close()
+            PltDet = [{'pltName': t[0], 'pltSongCount': t[1], 'pltSongs': t[2], 'pltID': t[3]}
+                      for t in
+                      zip(pltName, pltSongCount, pltSongs, pltID)]
+            session["allPlaylist"] = PltDet
+            # print(AlbDet)
+        cur.close()
+
+        cur2 = mysql.connection.cursor()
+        result = cur2.execute("SELECT Artist.Artist_ID FROM Artist, Interest_User_Artist WHERE Artist.Artist_ID = "
+                              "Interest_User_Artist.Artist_ID AND Interest_User_Artist.User_ID=%s",
+                              [session["username"]])
+        if result > 0:
+            alreadyLikedArtist = []
+            for i in cur2.fetchall():
+                alreadyLikedArtist.append(i['Artist_ID'])
+            # print(alreadyLikedArtist)
+            artDet = []
+            for i in alreadyLikedArtist:
+                cur = mysql.connection.cursor()
+                cur.execute("SELECT * FROM Artist WHERE Artist_ID=%s", [i])
+                artDet.append(cur.fetchone())
+                cur.close()
+            # print(artDet)
+            session["likedArtist"] = artDet
+            cur2.close()
+
+        cur2 = mysql.connection.cursor()
+        result = cur2.execute("SELECT Song.Song_ID FROM Song, User_Likes WHERE Song.Song_ID = User_Likes.Song_ID AND "
+                              "User_Likes.User_ID=%s", [session["username"]])
+        if result > 0:
+            alreadyLikedSong = []
+            for i in cur2.fetchall():
+                alreadyLikedSong.append(i['Song_ID'])
+            # print(alreadyLikedSong)
+            songDet = []
+            for i in alreadyLikedSong:
+                cur = mysql.connection.cursor()
+                cur.execute("SELECT * FROM Song WHERE Song_ID=%s", [i])
+                songDet.append(cur.fetchone())
+                cur.close()
+            # print(songDet)
+            session["likedSongs"] = songDet
+            cur2.close()
+
+        cur2 = mysql.connection.cursor()
+        result = cur2.execute("SELECT Genre.Genre_ID FROM Genre, Interest_User_Genre WHERE Genre.Genre_ID = "
+                              "Interest_User_Genre.Genre_ID AND Interest_User_Genre.User_ID=%s",
+                              [session["username"]])
+        if result > 0:
+            alreadyLikedGenre = []
+            for i in cur2.fetchall():
+                alreadyLikedGenre.append(i['Genre_ID'])
+            # print(alreadyLikedArtist)
+            GenDet = []
+            for i in alreadyLikedGenre:
+                cur = mysql.connection.cursor()
+                cur.execute("SELECT * FROM Genre WHERE Genre_ID=%s", [i])
+                GenDet.append(cur.fetchone())
+                cur.close()
+            # print(GenDet)
+            session["likedGenre"] = GenDet
+            cur2.close()
+    flash("Dashboard", "success")
+    return render_template('dashboard.html')
 
 
 class make_playlist(Form):
-    title = StringField('Name', [validators.Length(min=1, max=25)])
-
-
-@app.route('/create_playlist', methods=['GET', 'POST'])
-@is_logged_in
-def create_playlist():
-    form = make_playlist(request.form)
-    if request.method == 'POST' and form.validate():
-        title = form.title.data
-
-        cur = mysql.connection.cursor()
-
-        # result=cur.execute("SELECT * FROM users WHERE username= %s",[{{session.username}}])
-        username = session['username']
-
-        row = cur.execute("SELECT * FROM users WHERE username = %s", [username])
-        result = cur.fetchone()
-        idd = result['id']
-        cur.execute("INSERT INTO songs(title,user_id) VALUES (%s,%s)", ([title], idd,))
-        cur.execute("UPDATE songs SET type=1 WHERE title=%s", ([title]))
-        mysql.connection.commit()
-        cur.close()
-
-        flash(idd, 'success')
-
-        return redirect(url_for('dashboard'))
-    return render_template('add_playlist.html', form=form)
+    PlaylistName = StringField('Playlist Name', [
+        validators.Length(min=1, max=20, message="Playlist Name should be between length 1 and 20."),
+        validators.DataRequired(message="Name field can't be empty!!")
+    ])
+    Playlist_ID = StringField("Playlist ID", [
+        validators.length(7, message="Playlist ID should be of length 7"),
+        validators.Regexp('^PID[0-9]{4}', message="Playlist ID should be of format PID0000"),
+        validators.DataRequired(message="Playlist ID field can't be empty!!")
+    ])
+    SongName = SelectMultipleField("Songs")
 
 
 @app.route('/create_private_playlist', methods=['GET', 'POST'])
 @is_logged_in
-def create_private_playlist():
+def create_playlist():
     form = make_playlist(request.form)
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT Name FROM Song")
+    allSong = cur.fetchall()
+    listSon = []
+    for i in range(len(allSong)):
+        listSon.append((allSong[i]['Name'], allSong[i]['Name']))
+    cur.close()
+    form.SongName.choices = listSon
+
     if request.method == 'POST' and form.validate():
-        title = form.title.data
-
+        Name = form.PlaylistName.data
+        songName = form.SongName.data
+        # print(songName)
+        SongID = []
         cur = mysql.connection.cursor()
-
-        # result=cur.execute("SELECT * FROM users WHERE username= %s",[{{session.username}}])
-        username = session['username']
-
-        row = cur.execute("SELECT * FROM users WHERE username = %s", [username])
-        result = cur.fetchone()
-        idd = result['id']
-        cur.execute("INSERT INTO songs(title,user_id) VALUES (%s,%s)", ([title], idd))
-        cur.execute("UPDATE songs SET type=0 WHERE title=%s", ([title]))
-        mysql.connection.commit()
+        for i in range(len(songName)):
+            cur.execute("SELECT Song_ID FROM Song WHERE Name=%s", [songName[i]])
+            SongID.append(cur.fetchone()['Song_ID'])
         cur.close()
-
-        flash(idd, 'success')
-
-        return redirect(url_for('dashboard'))
+        PlaylistID = form.Playlist_ID.data
+        curUserId = session["username"]
+        global name, unique_id, songList
+        name = Name
+        songList = SongID
+        unique_id = PlaylistID
+        cur = mysql.connection.cursor()
+        result = cur.execute("SELECT * FROM Playlist WHERE Playlist_ID= %s", [unique_id])
+        if result > 0:
+            error = 'Playlist ID Already Exists, Please try Another Playlist ID.'
+            return render_template('add_playlist.html', form=form, error=error)
+        else:
+            cur.execute("INSERT INTO Playlist(Playlist_ID,User_ID, Name) "
+                        "VALUES(%s,%s,%s)",
+                        (unique_id, curUserId, name))
+            for i in range(len(songList)):
+                cur.execute("INSERT INTO Playlist_Song(Playlist_ID, Song_ID) VALUES (%s,%s)",
+                            (unique_id, songList[i]))
+            mysql.connection.commit()
+            cur.close()
+            flash('Successfully Added {} with id {}'.format(name, unique_id), 'success')
     return render_template('add_playlist.html', form=form)
 
 
-@app.route('/users')
-@is_logged_in
-def users():
-    # cur = mysql.connection.cursor()
-    # result = cur.execute("SELECT * from users")
-    # songs = cur.fetchall()
-    # if result > 0:
-    #     return render_template('user.html', songs=songs)
-    # else:
-    #     msg = "NO PLAYLIST FOUND "
-    # cur.close()
-    return render_template('user.html', msg="USERS")
+class like_artist(Form):
+    ArtistName = SelectField("Artists")
 
 
-@app.route('/users/playlist/<string:idd>')
+@app.route('/create_like_artist', methods=['GET', 'POST'])
 @is_logged_in
-def u_play(idd):
+def create_like_artist():
+    form = like_artist(request.form)
     cur = mysql.connection.cursor()
-    result = cur.execute("SELECT * from songs WHERE user_id=%s and type=1", [idd])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('das.html', songs=songs)
-    else:
-        msg = "NO PLAYLIST FOUND "
-    return render_template('das.html', msg=msg)
+    cur.execute("SELECT Name FROM Artist")
+    allArtist = cur.fetchall()
+    listArt = []
+    cur2 = mysql.connection.cursor()
+    cur2.execute("SELECT Artist.Name FROM Artist, Interest_User_Artist WHERE Artist.Artist_ID = "
+                 "Interest_User_Artist.Artist_ID AND Interest_User_Artist.User_ID=%s", [session["username"]])
+    alreadyLikedArtist = []
+    for i in cur2.fetchall():
+        alreadyLikedArtist.append(i['Name'])
+    # print(alreadyLikedSong)
+    cur2.close()
+    for i in range(len(allArtist)):
+        # print(i)
+        if allArtist[i]['Name'] not in alreadyLikedArtist:
+            listArt.append((allArtist[i]['Name'], allArtist[i]['Name']))
     cur.close()
-
-
-@app.route('/Reputation')
-@is_logged_in
-def play():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'rep%'")
-    albu = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('home.html', songs=songs, albu=albu)
-    else:
-        songs = 0
-        return render_template('home.html', albu=albu, song=songs)
-    cur.close()
-    #    app.logger.info(albu[11]["path"]
-    return render_template('home.html', albu=albu)
-
-
-@app.route('/Camila')
-@is_logged_in
-def cam():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'Cam%'")
-    albu1 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('camila.html', songs=songs, albu=albu1)
-    else:
-        songs = 0
-        return render_template('camila.html', albu=albu1, song=songs)
-    cur.close()
-    #    app.logger.info(albu[11]["path"]
-    return render_template('camila.html', albu=albu1)
-
-
-@app.route('/CTRL')
-@is_logged_in
-def sza():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'SZA%'")
-    albu2 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('ctrl.html', songs=songs, albu=albu2)
-    else:
-        songs = 0
-        return render_template('ctrl.html', albu=albu2, song=songs)
-    cur.close()
-    #    app.logger.info(albu[11]["path"]
-    return render_template('ctrl.html', albu=albu2)
-
-
-@app.route('/BlackPanther')
-@is_logged_in
-def panther():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'bla%'")
-    albu3 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('blackpanther.html', songs=songs, albu=albu3)
-    else:
-        songs = 0
-        return render_template('blackpanther.html', albu=albu3, song=songs)
-    cur.close()
-    #    app.logger.info(albu[11]["path"]
-    return render_template('blackpanther.html', albu=albu3)
-
-
-@app.route('/Damn')
-@is_logged_in
-def damn():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'Ken%'")
-    albu4 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('damn.html', songs=songs, albu=albu4)
-    else:
-        songs = 0
-        return render_template('damn.html', albu=albu4, song=songs)
-    cur.close()
-    #    app.logger.info(albu[11]["path"]
-    return render_template('damn.html', albu=albu4)
-
-
-@app.route('/SGFG')
-@is_logged_in
-def sgfg():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE '5 S%'")
-    albu5 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('sgfg.html', songs=songs, albu=albu5)
-    else:
-        songs = 0
-        return render_template('sgfg.html', albu=albu5, song=songs)
-    cur.close()
-
-
-@app.route('/revival')
-@is_logged_in
-def revival():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'Emi%'")
-    albu6 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('revival.html', songs=songs, albu=albu6)
-    else:
-        songs = 0
-        return render_template('revival.html', albu=albu6, song=songs)
-    cur.close()
-
-
-#	app.logger.info(albu5[14]["path"])
-
-@app.route('/ManOfWoods')
-@is_logged_in
-def manof():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs_list WHERE album LIKE 'Jus%'")
-    albu7 = cur.fetchall()
-    result = cur.execute("SELECT * from songs WHERE user_id = %s", [session['id']])
-    songs = cur.fetchall()
-    if result > 0:
-        return render_template('manofwoods.html', songs=songs, albu=albu7)
-    else:
-        songs = 0
-        return render_template('manofwoods.html', albu=albu7, song=songs)
-    cur.close()
-
-
-@app.route('/save_playlist/<string:name>/<string:ide>')
-@is_logged_in
-def save(name, ide):
-    res = ""
-    playl = []
-    flag = 0
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs WHERE title = %s and user_id=%s", ([name], [session['id']]))
-    result = cur.fetchone()
-    print(name)
-    if result['_songs'] is None:
-        cur.execute("UPDATE songs SET _songs=%s WHERE title=%s and user_id=%s", (ide, name, session['id']))
+    form.ArtistName.choices = listArt
+    if request.method == 'POST' and form.validate():
+        artistName = form.ArtistName.data
+        cur2 = mysql.connection.cursor()
+        cur2.execute("SELECT Artist_ID FROM Artist WHERE Name=%s", [artistName])
+        artistID = cur2.fetchall()[0]['Artist_ID']
+        cur2.close()
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO Interest_User_Artist(User_ID,Artist_ID) "
+                    "VALUES(%s,%s)",
+                    (session['username'], artistID))
         mysql.connection.commit()
+        cur.close()
+        flash('Successfully Liked Artist: {}'.format(artistName), 'success')
+        return render_template('like_artist.html', form=form)
+        # print(artistID)
 
-    else:
-        res = result['_songs']
-        playl = res.split("'")
+    return render_template('like_artist.html', form=form)
 
-        for i in playl:
-            if i == ide:
-                flag = 1
-        if flag == 1:
-            flash("songs already exist", 'danger')
-            return redirect(url_for('dashboard'))
-        else:
-            cur.execute("UPDATE songs SET _songs=CONCAT(%s'',_songs) WHERE title=%s and user_id=%s",
-                        (ide, name, session['id']))
 
+class like_Song(Form):
+    SongName = SelectField("Songs")
+
+
+@app.route('/create_like_song', methods=['GET', 'POST'])
+@is_logged_in
+def create_like_song():
+    form = like_Song(request.form)
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT Name FROM Song")
+    allSongs = cur.fetchall()
+    listSng = []
+    cur2 = mysql.connection.cursor()
+    cur2.execute("SELECT Song.Name FROM Song, User_Likes WHERE Song.Song_ID = "
+                 "User_Likes.Song_ID AND User_Likes.User_ID=%s", [session["username"]])
+    alreadyLikedSong = []
+    for i in cur2.fetchall():
+        alreadyLikedSong.append(i['Name'])
+    # print(alreadyLikedSong)
+    cur2.close()
+    for i in range(len(allSongs)):
+        # print(i)
+        if allSongs[i]['Name'] not in alreadyLikedSong:
+            listSng.append((allSongs[i]['Name'], allSongs[i]['Name']))
+    cur.close()
+    form.SongName.choices = listSng
+    if request.method == 'POST' and form.validate():
+        songName = form.SongName.data
+        cur2 = mysql.connection.cursor()
+        cur2.execute("SELECT Song_ID FROM Song WHERE Name=%s", [songName])
+        songID = cur2.fetchall()[0]['Song_ID']
+        cur2.close()
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO User_Likes(User_ID,Song_ID) "
+                    "VALUES(%s,%s)",
+                    (session['username'], songID))
         mysql.connection.commit()
+        cur.close()
+        flash('Successfully Liked Song: {}'.format(songName), 'success')
+        return render_template('like_song.html', form=form)
+        # print(artistID)
 
-    cur.close()
-    flash("Song is added to playlist", 'success')
-    return redirect(url_for('dashboard'))
+    return render_template('like_song.html', form=form)
 
 
-@app.route('/delete_playlist/<string:idd>')
+class like_Genre(Form):
+    GenreName = SelectField("Artists")
+
+
+@app.route('/create_like_genre', methods=['GET', 'POST'])
 @is_logged_in
-def delete_playlist(idd):
+def create_like_genre():
+    form = like_Genre(request.form)
     cur = mysql.connection.cursor()
-    cur.execute("delete  FROM songs WHERE id =%s", [idd])
-    mysql.connection.commit()
+    cur.execute("SELECT Name FROM Genre")
+    allGenre = cur.fetchall()
+    listGen = []
+    cur2 = mysql.connection.cursor()
+    cur2.execute("SELECT Genre.Name FROM Genre, Interest_User_Genre WHERE Genre.Genre_ID = "
+                 "Interest_User_Genre.Genre_ID AND Interest_User_Genre.User_ID=%s", [session["username"]])
+    alreadyLikedGenre = []
+    for i in cur2.fetchall():
+        alreadyLikedGenre.append(i['Name'])
+    # print(alreadyLikedSong)
+    cur2.close()
+    for i in range(len(allGenre)):
+        # print(i)
+        if allGenre[i]['Name'] not in alreadyLikedGenre:
+            listGen.append((allGenre[i]['Name'], allGenre[i]['Name']))
     cur.close()
-    flash("Playlist successfully deleted", 'success')
-    return redirect(url_for('dashboard'))
+    form.GenreName.choices = listGen
+    if request.method == 'POST' and form.validate():
+        GenreName = form.GenreName.data
+        cur2 = mysql.connection.cursor()
+        cur2.execute("SELECT Genre_ID FROM Genre WHERE Name=%s", [GenreName])
+        GenreID = cur2.fetchall()[0]['Genre_ID']
+        cur2.close()
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO Interest_User_Genre(User_ID,Genre_ID) "
+                    "VALUES(%s,%s)",
+                    (session['username'], GenreID))
+        mysql.connection.commit()
+        cur.close()
+        flash('Successfully Liked Genre: {}'.format(GenreName), 'success')
+        return render_template('like_genre.html', form=form)
+        # print(artistID)
+
+    return render_template('like_genre.html', form=form)
 
 
-@app.route('/connect')
-def connect():
-    return render_template('connect.html')
-
-
-@app.route('/play_playlist/<string:idd>')
-@is_logged_in
-def play_playlist(idd):
-    res = ""
-    playl = []
-    data = []
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM songs WHERE id =%s", [idd])
-    result = cur.fetchone()
-    res = result['_songs']
-    if res is None:
-        flash("no song in playlist", 'danger')
-        return redirect(url_for('dashboard'))
-    else:
-        playl = res.split("'")
-        length = len(playl)
-        for i in playl:
-            cur.execute("SELECT * FROM songs_list WHERE id=%s", [i])
-            data.append(cur.fetchone())
-        cur.execute("SELECT * FROM songs WHERE id=%s", [idd])
-        name = cur.fetchone()
-        Name = name['title']
-        return render_template('playlist.html', albu=data, Name=Name, len=length)
+# ***************************************************************************************************************#
 
 
 if __name__ == '__main__':
