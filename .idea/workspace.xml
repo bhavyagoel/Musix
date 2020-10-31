@@ -16,8 +16,7 @@
     <list default="true" id="ecb9b580-6ce6-4f4e-a6fd-99d34b2e9435" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/review2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,17 +81,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="musiX" type="PythonConfigurationType" factoryName="Python">
       <module name="musiX" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,7 +144,8 @@
       <workItem from="1603980704057" duration="12668000" />
       <workItem from="1604048471904" duration="25781000" />
       <workItem from="1604081098870" duration="462000" />
-      <workItem from="1604081624753" duration="9139000" />
+      <workItem from="1604081624753" duration="10082000" />
+      <workItem from="1604122261366" duration="1174000" />
     </task>
     <servers />
   </component>

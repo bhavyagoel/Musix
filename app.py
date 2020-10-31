@@ -1129,7 +1129,7 @@ def create_like_song():
 
 
 class like_Genre(Form):
-    GenreName = SelectField("Artists")
+    GenreName = SelectField("Genre")
 
 
 @app.route('/create_like_genre', methods=['GET', 'POST'])
@@ -1172,7 +1172,9 @@ def create_like_genre():
 
     return render_template('like_genre.html', form=form)
 
-
+@app.route('/connect')
+def connect():
+    return render_template('connect.html')
 # ***************************************************************************************************************#
 
 
