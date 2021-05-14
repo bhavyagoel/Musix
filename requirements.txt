@@ -16,9 +16,9 @@ spotipy~=2.16.0
 WTForms~=2.3.2
 werkzeug~=1.0.1
 tqdm
-# spotdl
+spotdl
 # pytube
-https://github.com/spotDL/spotify-downloader/archive/next-rel-dev.zip
+# https://github.com/spotDL/spotify-downloader/archive/next-rel-dev.zip
 git+https://github.com/nficano/pytube
 
 
